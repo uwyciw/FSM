@@ -17,6 +17,7 @@
  /* Includes ------------------------------------------------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
+#include <stddef.h>
 
 /**
   * @brief FSM 事件类型枚举，定义框架保留事件及用户事件起始值
@@ -33,9 +34,9 @@ typedef enum {
   * @brief FSM 实例结构体，维护状态机当前状态、上一状态及转换动作
   */
 typedef struct fsm_t {
-    void (*lastState)(struct fsm_t * pFSM, int event);      /*!< 上一状态函数指针 */
-    void (*currentState)(struct fsm_t * pFSM, int event);    /*!< 当前状态函数指针 */
-    void (*transitionAction)(void);                         /*!< 状态转换时的一次性动作函数指针 */
+    void (*lastState)(struct fsm_t * pFSM, int event);          /*!< 上一状态函数指针 */
+    void (*currentState)(struct fsm_t * pFSM, int event);       /*!< 当前状态函数指针 */
+    void (*transitionAction)(void);                             /*!< 状态转换时的一次性动作函数指针 */
 } FSM_T;
 
 /**
